@@ -1,5 +1,7 @@
-function getCell() {
-  const cell = document.getElementById("11");
-  console.log(cell.innerText);
+function loopContent() {
+  for (let i = 11; i <= 28; i++) {
+    const cell = document.getElementById(i);
+    console.log(cell);
+  }
 }
-getCell();
+loopContent();
