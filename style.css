@@ -1,1 +1,39 @@
 
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.board {
+
+    display: flex;
+    border: 2px solid black;
+    width: 80%;
+    height: 80%;
+    flex-wrap: wrap;
+}
+
+.b-line {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.b-square {
+    border: 1px solid black;
+    flex-grow: 2;
+}
+
+
+.b-piece-w {
+    background-color: #efd0ae;
+}
+
+.b-piece-b {
+    background-color: #bb885d;
+}
+
