@@ -1,16 +1,42 @@
-
 body {
-    width: 100vw;
-    height: 100vh;
+    margin: 0;
+    background-color: #302e2b;
+    justify-content: center;
+    align-content: center;    
+}
+
+nav {
+    height: 15vh;
+    background-color: #262522;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-player-name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.players {
+    background-color:  #262522;
+    
 }
 
 .board {
-
     display: flex;
-    border: 2px solid black;
-    width: 80%;
-    height: 80%;
+    width: 75vh;
+    height: 75vh;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .b-line {
@@ -21,19 +47,34 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
+    height: 12.5%;
 }
 
 .b-square {
-    border: 1px solid black;
-    flex-grow: 2;
+    position:relative;
+    width: 12.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-.b-piece-w {
+.b-square-w {
     background-color: #efd0ae;
 }
 
-.b-piece-b {
+.b-square-b {
     background-color: #bb885d;
 }
 
+.b-index {
+    position: absolute;
+    left: 1%;
+    top: 0%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10px;
+}
+
+img {
+    width: 60%;
+    height: 60%;
+}
