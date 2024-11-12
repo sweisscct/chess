@@ -1,80 +1,49 @@
+:root {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+}
 body {
     margin: 0;
     background-color: #302e2b;
     justify-content: center;
     align-content: center;    
+    height: 100vh;
 }
 
 nav {
+    position: absolute;
+    top: 0px;
     height: 15vh;
     background-color: #262522;
-    color: white;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
+    /* display: none; */
 }
 
-.nav-player-name {
+.nav-players {
+    display: flex;
+    flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.nav-players span {
+    width: 100%;
+    padding: 5%;
+}
+
+.nav-newgame {
+    height: 90%;
+    margin-right: 1%;
+    width: 10%;
+    border-radius: 10px;
+    color: #262522;
+}
 
 section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5vh;
-}
-
-.players {
-    background-color:  #262522;
-    
-}
-
-.board {
-    display: flex;
-    width: 75vh;
-    height: 75vh;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.b-line {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    height: 12.5%;
-}
-
-.b-square {
-    position:relative;
-    width: 12.5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.b-square-w {
-    background-color: #efd0ae;
-}
-
-.b-square-b {
-    background-color: #bb885d;
-}
-
-.b-index {
-    position: absolute;
-    left: 1%;
-    top: 0%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 10px;
-}
-
-img {
-    width: 60%;
-    height: 60%;
+    width: 100%;
 }

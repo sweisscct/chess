@@ -1,0 +1,100 @@
+
+/*
+    specific board css confs
+*/
+
+.board {
+    display: flex;
+    width: 75vh;
+    height: 75vh;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.b-buttom {
+    width: 100%;
+}
+
+.b-line {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 12.5%;
+}
+
+.b-square {
+    position:relative;
+    width: 12.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-square:hover {
+    background-color: #555555 ;
+}
+
+.b-square-w {
+    background-color: #efd0ae;
+}
+
+.b-square-b {
+    background-color: #bb885d;
+}
+
+.b-index, .b-index-y {
+    position: absolute;
+    font-size: 10px;
+    color:  #302e2b;
+}
+
+.b-index {
+    left: 1%;
+    top: 0%;
+}
+
+.b-index-y {
+    right: 1%;
+    bottom: 0%;
+}
+
+.b-piece {
+    width: 60%;
+    height: 60%;
+}
+
+.b-players, .b-placar {
+    display: flex;
+    flex-direction: column;
+    background-color: #262522;
+    width: 50vh;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.b-placar {
+    display: none;
+}
+
+.b-player-field {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    color: white;
+}
+
+.b-player-buttom {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.b-board-destination {
+    border: 5px solid red;
+}
+
+
