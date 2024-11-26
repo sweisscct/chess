@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html onkeydown="repeatPieceChossing(this)"  lang="en">
 
 <head>
     <link rel="stylesheet" href="./style.css">
@@ -11,15 +11,6 @@
 </head>
 
 <body>
-        <!-- <nav id="nav">
-            <div class="nav-players">
-            </div>
-
-            <button class="nav-newgame" onclick="newGame()">
-                New Game
-            </button>
-        </nav> -->
-
 
     <section class="content">
         <div class="b-players">
@@ -44,89 +35,90 @@
                 <span class="nav-player-name">Player 02: <strong id="player2Name">player2s name </strong></span>
             </div>
 
+            <span id="msgPlayer"></span>
+
             <button onclick="newGame()" class="b-player-buttom">New Game</button>
         </div>
 
-        <div class="board">
+        <div class="board" onmouseleave="onLeaveBoard()">
             <div class="b-line">
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="00" src="./images/transparency-image.png"> <span class="b-index">1</span> <span class="b-index-y">A</span></div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="01" src="./images/transparency-image.png"> <span class="b-index">2</span></div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="02" src="./images/transparency-image.png"> <span class="b-index">3</span></div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="03" src="./images/transparency-image.png"> <span class="b-index">4</span></div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="04" src="./images/transparency-image.png"> <span class="b-index">5</span></div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="05" src="./images/transparency-image.png"> <span class="b-index">6</span></div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="06" src="./images/transparency-image.png"> <span class="b-index">7</span></div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="07" src="./images/transparency-image.png"> <span class="b-index">8</span></div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d00"></div> <img class="b-piece" id="00" src="./images/transparency-image.png"> <span class="b-index">1</span> <span class="b-index-y">A</span></div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d01"></div> <img class="b-piece" id="01" src="./images/transparency-image.png"> <span class="b-index">2</span></div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d02"></div> <img class="b-piece" id="02" src="./images/transparency-image.png"> <span class="b-index">3</span></div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d03"></div> <img class="b-piece" id="03" src="./images/transparency-image.png"> <span class="b-index">4</span></div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d04"></div> <img class="b-piece" id="04" src="./images/transparency-image.png"> <span class="b-index">5</span></div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d05"></div> <img class="b-piece" id="05" src="./images/transparency-image.png"> <span class="b-index">6</span></div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d06"></div> <img class="b-piece" id="06" src="./images/transparency-image.png"> <span class="b-index">7</span></div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d07"></div> <img class="b-piece" id="07" src="./images/transparency-image.png"> <span class="b-index">8</span></div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="10" src="./images/transparency-image.png"><span class="b-index-y">B</span>  </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="11" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="12" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="13" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="14" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="15" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="16" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="17" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d10"></div> <img class="b-piece" id="10" src="./images/transparency-image.png"><span class="b-index-y">B</span>  </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d11"></div> <img class="b-piece" id="11" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d12"></div> <img class="b-piece" id="12" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d13"></div> <img class="b-piece" id="13" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d14"></div> <img class="b-piece" id="14" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d15"></div> <img class="b-piece" id="15" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d16"></div> <img class="b-piece" id="16" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d17"></div> <img class="b-piece" id="17" src="./images/transparency-image.png"> </div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="20" src="./images/transparency-image.png">  <span class="b-index-y">B</span> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="21" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="22" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="23" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="24" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="25" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="26" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="27" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d20"></div> <img class="b-piece" id="20" src="./images/transparency-image.png">  <span class="b-index-y">B</span> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d21"></div> <img class="b-piece" id="21" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d22"></div> <img class="b-piece" id="22" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d23"></div> <img class="b-piece" id="23" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d24"></div> <img class="b-piece" id="24" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d25"></div> <img class="b-piece" id="25" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d26"></div> <img class="b-piece" id="26" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d27"></div> <img class="b-piece" id="27" src="./images/transparency-image.png"> </div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="30" src="./images/transparency-image.png"> <span class="b-index-y">D</span> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="31" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="32" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="33" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="34" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="35" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="36" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="37" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d30"></div> <img class="b-piece" id="30" src="./images/transparency-image.png"> <span class="b-index-y">D</span> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d31"></div> <img class="b-piece" id="31" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d32"></div> <img class="b-piece" id="32" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d33"></div> <img class="b-piece" id="33" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d34"></div> <img class="b-piece" id="34" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d35"></div> <img class="b-piece" id="35" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d36"></div> <img class="b-piece" id="36" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d37"></div> <img class="b-piece" id="37" src="./images/transparency-image.png"> </div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="40" src="./images/transparency-image.png"> <span class="b-index-y">E</span> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="41" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="42" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="43" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="44" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="45" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="46" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="47" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d40"></div> <img class="b-piece" id="40" src="./images/transparency-image.png"> <span class="b-index-y">E</span> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d41"></div> <img class="b-piece" id="41" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d42"></div> <img class="b-piece" id="42" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d43"></div> <img class="b-piece" id="43" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d44"></div> <img class="b-piece" id="44" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d45"></div> <img class="b-piece" id="45" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d46"></div> <img class="b-piece" id="46" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d47"></div> <img class="b-piece" id="47" src="./images/transparency-image.png"> </div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="50" src="./images/transparency-image.png"> <span class="b-index-y">F</span></div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="51" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="52" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="53" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="54" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="55" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="56" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="57" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d50"></div> <img class="b-piece" id="50" src="./images/transparency-image.png"> <span class="b-index-y">F</span></div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d51"></div> <img class="b-piece" id="51" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d52"></div> <img class="b-piece" id="52" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d53"></div> <img class="b-piece" id="53" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d54"></div> <img class="b-piece" id="54" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d55"></div> <img class="b-piece" id="55" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d56"></div> <img class="b-piece" id="56" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d57"></div> <img class="b-piece" id="57" src="./images/transparency-image.png"> </div>
+            </div>            <div class="b-line">
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d60"></div> <img class="b-piece" id="60" src="./images/transparency-image.png"> <span class="b-index-y">G</span></div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d61"></div> <img class="b-piece" id="61" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d62"></div> <img class="b-piece" id="62" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d63"></div> <img class="b-piece" id="63" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d64"></div> <img class="b-piece" id="64" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d65"></div> <img class="b-piece" id="65" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d66"></div> <img class="b-piece" id="66" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d67"></div> <img class="b-piece" id="67" src="./images/transparency-image.png"> </div>
             </div>
             <div class="b-line">
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="60" src="./images/transparency-image.png"> <span class="b-index-y">G</span></div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="61" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="62" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="63" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="64" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="65" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="66" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="67" src="./images/transparency-image.png"> </div>
-            </div>
-            <div class="b-line">
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="70" src="./images/transparency-image.png"> <span class="b-index-y">H</span> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="71" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="72" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="73" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="74" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="75" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-b" onmouseover="markDestination(this)" > <img class="b-piece"id="76" src="./images/transparency-image.png"> </div>
-                <div class="b-square b-square-w" onmouseover="markDestination(this)" > <img class="b-piece"id="77" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d70"></div> <img class="b-piece" id="70" src="./images/transparency-image.png"> <span class="b-index-y">H</span> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d71"></div> <img class="b-piece" id="71" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d72"></div> <img class="b-piece" id="72" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d73"></div> <img class="b-piece" id="73" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d74"></div> <img class="b-piece" id="74" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d75"></div> <img class="b-piece" id="75" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-b" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d76"></div> <img class="b-piece" id="76" src="./images/transparency-image.png"> </div>
+                <div class="b-square b-square-w" onmouseover="chooseDest(this)" onclick="handleMove(this)" > <div id="d77"></div> <img class="b-piece" id="77" src="./images/transparency-image.png"> </div>
             </div>
         </div>
 

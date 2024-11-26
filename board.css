@@ -93,8 +93,25 @@
     width: 90%;
 }
 
-.b-board-destination {
-    border: 5px solid red;
+.b-square-destination {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    animation-name: pulsation;
+    animation-iteration-count: infinite;
+    animation-duration: .5s;
+    opacity: .5;
+    z-index: 2;
 }
 
+@keyframes pulsation {
+    100%, 0% {
+        width: 30%;
+        height: 30%;    
+    }
 
+    50% {
+        width: 60%;
+        height: 60%;    
+    }
+}
